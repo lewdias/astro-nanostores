@@ -62,7 +62,7 @@ export const Abilities = () => {
           >
             <path d="M0 1H311" stroke="#C89B3C" />
           </svg>
-          <h1 class="text-5xl">SKILLS</h1>
+          <h1 class="text-5xl italic">SKILLS</h1>
           <svg
             width="311"
             height="2"

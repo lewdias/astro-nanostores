@@ -2,14 +2,34 @@
   Erro no "class" e "key" está relacionado a utilizar vue e react no mesmo projeto
 -->
 <template>
-  <div
+  <section
     class="mt-14 mb-12"
     v-if="
       selectedChampionTips?.allytips.length ||
       selectedChampionTips?.enemytips.length
     "
   >
-    <h1 className="text-white uppercase text-5xl mb-5">Tips!</h1>
+    <div class="flex justify-around items-center">
+      <svg
+        width="311"
+        height="2"
+        viewBox="0 0 311 2"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M0 1H311" stroke="#C89B3C" />
+      </svg>
+      <h1 class="text-5xl italic text-white mb-5">TIPS</h1>
+      <svg
+        width="311"
+        height="2"
+        viewBox="0 0 311 2"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M0 1H311" stroke="#C89B3C" />
+      </svg>
+    </div>
     <div
       class="flex flex-row justify-between w-full"
       v-if="!!selectedChampionTips?.allytips.length"
@@ -39,7 +59,7 @@
         </ul>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script lang="ts">

@@ -64,21 +64,25 @@ export const Info = () => {
   }
 
   return (
-    <>
+    <div className="relative">
       <ReactQueryDevtools queryClient={client} />
 
       <section className="relative">
         <div className="flex mx-auto p-0">
           <div
-            className="w-full h-[680px] bg-cover bg-center relative mt-20 p-5 backdrop-blur-sm"
+            className="w-full h-[680px] bg-cover bg-center relative mt-20 p-5"
             style={{
               backgroundImage: `url(${getChampionSplashImage(
                 selectedChampion.id
               )})`,
             }}
           >
-            <div className="opacity-50 bg-black absolute w-full h-full top-0 right-0 pointer-events-none z-10" />
-            <div className="flex items-center justify-center h-full">
+            <img
+              src="/splash-mask.png"
+              alt="Máscara BG"
+              className="absolute top-0 left-0 w-full h-full pointer-events-none"
+            />
+            <div className="flex flex-col items-center justify-center h-full">
               <div className="relative z-20 w-3/6 flex items-center justify-center flex-col">
                 <img
                   src={getChampionIconApiUrl(
@@ -87,10 +91,10 @@ export const Info = () => {
                   )}
                   alt={selectedChampion.name}
                 />
-                <h1 className="text-white text-6xl uppercase my-6">
+                <h1 className="text-white text-7xl uppercase my-6">
                   {selectedChampion.name}
                 </h1>
-                <h2 className="text-white text-2xl uppercase">
+                <h2 className="text-white text-2xl uppercase italic">
                   {selectedChampion.title}
                 </h2>
 
@@ -151,6 +155,7 @@ export const Info = () => {
           <path d="M1 1L32 32L1 63" stroke="#785A28" />
         </svg>
       </section>
-    </>
+      <p className="text-white text-center absolute bottom-0">{selectedChampion.lore}</p>
+    </div>
   );
 };
