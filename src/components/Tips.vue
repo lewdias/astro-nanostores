@@ -47,7 +47,8 @@ import { useStore } from "@nanostores/vue";
 import { useQuery, QueryClient } from "@tanstack/vue-query";
 import { getChampions, getChampion } from "../api/Champions";
 import { getLatestVersion } from "../api/Versions";
-import { championStore, client } from "../store/Store";
+import { championStore } from "../store/Store";
+import { client } from "../store/QueryClient";
 
 export default {
   setup() {

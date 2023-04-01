@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { championStore, client } from "../store/Store";
+import { championStore } from "../store/Store";
+import { client } from "../store/QueryClient";
 import { getChampions, getChampion, getChampionSplashImage } from "../api";
 import { getLatestVersion } from "../api/Versions";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";

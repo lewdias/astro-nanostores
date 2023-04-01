@@ -2,7 +2,8 @@
 
 import { createQuery } from "@tanstack/solid-query";
 import { useStore } from "@nanostores/solid";
-import { championStore, client } from "../store/Store";
+import { championStore } from "../store/Store";
+import { client } from "../store/QueryClient";
 import { getChampion, getChampions, getSpellImage } from "../api";
 import { getLatestVersion } from "../api/Versions";
 
