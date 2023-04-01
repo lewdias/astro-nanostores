@@ -15,7 +15,7 @@
       v-if="!!selectedChampionTips?.allytips.length"
     >
       <div class="w-2/5">
-        <h2 class="text-white uppercase font-4xl mb-4">Ally Tips</h2>
+        <h2 class="text-white uppercase font-4xl mb-4">Playing with?</h2>
         <ul
           v-for="tip in selectedChampionTips?.allytips"
           :key="tip"
@@ -27,7 +27,7 @@
         </ul>
       </div>
       <div class="w-2/5" v-if="!!selectedChampionTips?.enemytips.length">
-        <h2 class="text-white uppercase font-4xl mb-4">Enemy Tips</h2>
+        <h2 class="text-white uppercase font-4xl mb-4">Playing against?</h2>
         <ul
           v-for="tip in selectedChampionTips?.enemytips"
           :key="tip"
