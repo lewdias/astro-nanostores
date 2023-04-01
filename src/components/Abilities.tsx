@@ -49,7 +49,7 @@ export const Abilities = () => {
   );
 
   return (
-    <div class="text-white mt-10">
+    <div class="text-white my-10">
       <div class="flex flex-col gap-5">
         {selectedChampionSpellsQuery.data?.map((spell) => (
           <div class="flex items-center">
