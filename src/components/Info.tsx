@@ -7,7 +7,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { useStore } from "@nanostores/react";
 import React from "react";
 
-export const Champions = () => {
+export const Info = () => {
   const champion = useStore(championStore);
 
   const { data: latestVersion } = useQuery(
