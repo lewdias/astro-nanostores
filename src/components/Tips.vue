@@ -15,24 +15,28 @@
       v-if="!!selectedChampionTips?.allytips.length"
     >
       <div class="w-2/5">
-        <h2 class="text-white uppercase font-4xl">Ally Tips</h2>
-        <p
+        <h2 class="text-white uppercase font-4xl mb-4">Ally Tips</h2>
+        <ul
           v-for="tip in selectedChampionTips?.allytips"
           :key="tip"
-          class="font-xs text-white"
+          class="font-xs text-white list-disc mb-2"
         >
-          {{ tip }}
-        </p>
+          <li>
+            {{ tip }}
+          </li>
+        </ul>
       </div>
       <div class="w-2/5" v-if="!!selectedChampionTips?.enemytips.length">
-        <h2 class="text-white uppercase font-4xl">Enemy Tips</h2>
-        <p
+        <h2 class="text-white uppercase font-4xl mb-4">Enemy Tips</h2>
+        <ul
           v-for="tip in selectedChampionTips?.enemytips"
           :key="tip"
-          class="font-xs text-white"
+          class="font-xs text-white list-disc mb-2"
         >
-          {{ tip }}
-        </p>
+          <li>
+            {{ tip }}
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -48,7 +52,7 @@ import { championStore, client } from "../store/Store";
 export default {
   setup() {
     const champion = useStore(championStore);
-    console.log(champion.value)
+    console.log(champion.value);
 
     const queryClient = new QueryClient({
       queryCache: client.getQueryCache(),
