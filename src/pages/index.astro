@@ -1,0 +1,14 @@
+---
+import { Abilities } from "../components/Abilities";
+import { Champions } from "../components/Champions";
+import Tips from "../components/Tips.vue";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Welcome to Astro.">
+  <main style="max-width: 1100px; margin: 0 auto;">
+    <Champions client:only="react" />
+    <Abilities client:only="solid" />
+    <Tips client:only="vue" />
+  </main>
+</Layout>
