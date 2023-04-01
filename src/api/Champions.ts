@@ -46,7 +46,6 @@ export const getChampionSplashImage = (id: string, skin = 0) => {
   return `${API_URL}/cdn/img/champion/splash/${id}_${skin}.jpg`;
 };
 
-
 export const getSpellImage = (version: string, id: string) => {
   return `${API_URL}/cdn/${version}/img/spell/${id}`;
 };
