@@ -81,7 +81,7 @@ export default {
 
     const { data: version } = useQuery(
       {
-        queryKey: ["version"],
+        queryKey: ["versions"],
         queryFn: () => getLatestVersion(),
         placeholderData: (prev) => prev,
       },
