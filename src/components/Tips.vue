@@ -73,7 +73,6 @@ import { client } from "../store/QueryClient";
 export default {
   setup() {
     const champion = useStore(championStore);
-    console.log(champion.value);
 
     const queryClient = new QueryClient({
       queryCache: client.getQueryCache(),
