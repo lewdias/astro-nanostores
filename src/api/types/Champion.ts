@@ -7,7 +7,7 @@ export type ChampionsType = {
   blurb: string;
   lore: string;
   partype: string;
-  tags: number[];
+  tags: string[];
   info: ChampionInfo;
   image: ChampionImage;
   stats: ChampionStats;
@@ -25,7 +25,7 @@ export type ChampionType = {
   allytips: string[];
   enemytips: string[];
   spells: ChampionSpells[];
-  tags: number[];
+  tags: string[];
 };
 
 export type ChampionImage = {

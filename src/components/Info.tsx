@@ -1,11 +1,17 @@
 import { useQuery } from "@tanstack/react-query";
 import { championStore } from "../store/Store";
 import { client } from "../store/QueryClient";
-import { getChampions, getChampion, getChampionSplashImage } from "../api";
+import {
+  getChampions,
+  getChampion,
+  getChampionSplashImage,
+  getChampionIconApiUrl,
+} from "../api";
 import { getLatestVersion } from "../api/Versions";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { useStore } from "@nanostores/react";
 import React from "react";
+import { TagIcon } from "./TagIcon";
 
 export const Info = () => {
   const champion = useStore(championStore);
@@ -61,10 +67,10 @@ export const Info = () => {
     <>
       <ReactQueryDevtools queryClient={client} />
 
-      <div className="relative">
+      <section className="relative">
         <div className="flex mx-auto p-0">
           <div
-            className="w-full h-96 bg-cover relative mt-20 p-5"
+            className="w-full h-[680px] bg-cover bg-center relative mt-20 p-5 backdrop-blur-sm"
             style={{
               backgroundImage: `url(${getChampionSplashImage(
                 selectedChampion.id
@@ -72,21 +78,46 @@ export const Info = () => {
             }}
           >
             <div className="opacity-50 bg-black absolute w-full h-full top-0 right-0 pointer-events-none z-10" />
-            <div className="flex items-center h-full">
-              <div className="relative z-20 w-3/6">
-                <h1 className="text-white text-6xl uppercase">
+            <div className="flex items-center justify-center h-full">
+              <div className="relative z-20 w-3/6 flex items-center justify-center flex-col">
+                <img
+                  src={getChampionIconApiUrl(
+                    latestVersion,
+                    selectedChampion.image.full
+                  )}
+                  alt={selectedChampion.name}
+                />
+                <h1 className="text-white text-6xl uppercase my-6">
                   {selectedChampion.name}
                 </h1>
-                <p className="text-white my-4 text-xs">
-                  {selectedChampion.lore}
-                </p>
-                <div className="text-white flex gap-1">
+                <h2 className="text-white text-2xl uppercase">
+                  {selectedChampion.title}
+                </h2>
+
+                <svg
+                  width="183"
+                  height="12"
+                  viewBox="0 0 183 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="my-5"
+                >
+                  <path
+                    d="M96.5279 0L91.5044 4.92682L86.4721 0H0V1.51661H80.8153L91.5044 12L102.186 1.51661H183V0H96.5279ZM91.5044 9.8623L82.2262 0.762638H86.1554L91.5044 6.00867L96.8446 0.762638H100.78L91.5044 9.8623Z"
+                    fill="#C89B3C"
+                  />
+                </svg>
+
+                <div className="text-white flex gap-7">
                   {selectedChampion.tags.map((tag) => (
                     <p
-                      className="border-white border-solid border-1 border h-9 w-24 flex items-center justify-center"
+                      className="text-center uppercase text-[10px] relative"
                       key={tag}
                     >
-                      {tag}
+                      <TagIcon tag={tag} className="w-12" />
+                      <span className="absolute bottom-1 left-1/2 translate-x-[-50%]">
+                        {tag}
+                      </span>
                     </p>
                   ))}
                 </div>
@@ -95,37 +126,31 @@ export const Info = () => {
           </div>
         </div>
         <svg
-          xmlns="http://www.w3.org/2000/svg"
+          width="48"
+          height="64"
+          viewBox="0 0 48 64"
           fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="white"
-          className="w-12 h-12 absolute -left-14 top-1/2"
+          xmlns="http://www.w3.org/2000/svg"
           onClick={previous}
+          className="absolute -left-24 top-1/2 cursor-pointer"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M15.75 19.5L8.25 12l7.5-7.5"
-          />
+          <path d="M32 63L1 32L32 1" stroke="#C89B3C" />
+          <path d="M47 63L16 32L47 1" stroke="#785A28" />
         </svg>
 
         <svg
-          xmlns="http://www.w3.org/2000/svg"
+          width="48"
+          height="64"
+          viewBox="0 0 48 64"
           fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="white"
-          className="w-12 h-12 absolute -right-14 top-1/2"
+          xmlns="http://www.w3.org/2000/svg"
           onClick={next}
+          className="absolute -right-24 top-1/2 cursor-pointer"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M8.25 4.5l7.5 7.5-7.5 7.5"
-          />
+          <path d="M16 1L47 32L16 63" stroke="#C89B3C" />
+          <path d="M1 1L32 32L1 63" stroke="#785A28" />
         </svg>
-      </div>
+      </section>
     </>
   );
 };

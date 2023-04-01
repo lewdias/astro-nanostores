@@ -3,9 +3,9 @@ module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
-      fontFamily: {
-        fun: ["ruddy", "sans-serif"],
-        quicksand: ["quicksand", "sans-serif"],
+      colors: {
+        gold: "#C89B3C",
+        darkgold: "#785A28"
       },
     },
   },

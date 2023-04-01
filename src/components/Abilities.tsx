@@ -50,23 +50,57 @@ export const Abilities = () => {
   );
 
   return (
-    <div class="text-white my-10">
+    <section class="text-white my-10">
       <div class="flex flex-col gap-5">
+        <div class="flex justify-around items-center">
+          <svg
+            width="311"
+            height="2"
+            viewBox="0 0 311 2"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M0 1H311" stroke="#C89B3C" />
+          </svg>
+          <h1 class="text-5xl">SKILLS</h1>
+          <svg
+            width="311"
+            height="2"
+            viewBox="0 0 311 2"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M0 1H311" stroke="#C89B3C" />
+          </svg>
+        </div>
         {selectedChampionSpellsQuery.data?.map((spell) => (
-          <div class="flex items-center">
-            <div class="w-16 h-16">
-              <img
-                src={getSpellImage(versionQuery.data, spell.image.full)}
-                alt={spell.name}
-              />
+          <>
+            <div class="flex items-center mb-8">
+              <div class="p-2 border-darkgold border-solid border">
+                <img
+                  src={getSpellImage(versionQuery.data, spell.image.full)}
+                  alt={spell.name}
+                  class="w-16 h-16"
+                />
+              </div>
+              <div class="ml-5">
+                <h2 class="font-bold uppercase">{spell.name}</h2>
+                <p>{spell.description}</p>
+              </div>
             </div>
-            <div class="ml-5">
-              <h2 class="font-bold uppercase">{spell.name}</h2>
-              <p>{spell.description}</p>
-            </div>
-          </div>
+            <svg
+              width="414"
+              height="1"
+              viewBox="0 0 414 1"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="mx-auto"
+            >
+              <path d="M0 0.5H414" stroke="#C89B3C" />
+            </svg>
+          </>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
