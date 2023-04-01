@@ -5,7 +5,7 @@ type GetChampionType = {
   version: string;
 };
 
-const API_URL = "http://ddragon.leagueoflegends.com";
+const API_URL = "https://ddragon.leagueoflegends.com";
 
 export const getApiUrl = (version: string) =>
   `${API_URL}/cdn/${version}/data/en_US`;

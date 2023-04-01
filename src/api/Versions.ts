@@ -1,4 +1,4 @@
-export const API_URL = "http://ddragon.leagueoflegends.com/api";
+export const API_URL = "https://ddragon.leagueoflegends.com/api";
 
 export const getLatestVersion = async () => {
   const res = await fetch(`${API_URL}/versions.json`);
