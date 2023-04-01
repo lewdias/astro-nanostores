@@ -70,7 +70,7 @@ export const Info = () => {
       <section className="relative">
         <div className="flex mx-auto p-0">
           <div
-            className="w-full h-[680px] bg-cover bg-center relative mt-20 p-5"
+            className="w-full h-[680px] bg-cover bg-center relative mt-20 p-5 before:content-[''] before:absolute before:w-full before:h-full before:left-0 before:top-0 before:opacity-40 before:bg-[#010a13]"
             style={{
               backgroundImage: `url(${getChampionSplashImage(
                 selectedChampion.id
@@ -155,7 +155,9 @@ export const Info = () => {
           <path d="M1 1L32 32L1 63" stroke="#785A28" />
         </svg>
       </section>
-      <p className="text-white text-center absolute bottom-0">{selectedChampion.lore}</p>
+      <p className="text-white text-center absolute bottom-0">
+        {selectedChampion.lore}
+      </p>
     </div>
   );
 };
