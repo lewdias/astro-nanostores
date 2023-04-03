@@ -6,6 +6,7 @@ import { championStore } from "../store/Store";
 import { client } from "../store/QueryClient";
 import { getChampion, getChampions, getSpellImage } from "../api";
 import { getLatestVersion } from "../api/Versions";
+import html from "solid-js/html";
 
 export const Abilities = () => {
   const champion = useStore(championStore);
@@ -85,7 +86,7 @@ export const Abilities = () => {
               </div>
               <div class="ml-5">
                 <h2 class="font-bold uppercase">{spell.name}</h2>
-                <p>{spell.description}</p>
+                {html([`<p>${spell.description}</p>`])}
               </div>
             </div>
             <svg
